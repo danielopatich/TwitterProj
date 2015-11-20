@@ -27,7 +27,7 @@ class App extends React.Component {
               tweets: response.data
             })
           });
-  }
+  } 
 
 
   render () {
