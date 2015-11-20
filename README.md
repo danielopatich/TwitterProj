@@ -1,9 +1,18 @@
-# THE NEW AND IMPROVED
+# Iron Yard Front End Boilerplate
 
 
-## This is the reinstallment of the 'Twittens' Project
+## Installation
 
-- using React, React Router, jQuery, Moment
+- `cd ~/dev`
+- `git clone git@github.com:theironyard-frontend-nashville/frontend-boilerplate.git <projectname>` replacing <projectname> with your own project name.
+- `cd <projectname>`
+- `rm -rf .git`
+- `git init`
+-  Create a new repo on Github.com and [add the remote](https://help.github.com/articles/adding-a-remote/).
+
+- `npm install`
+  - This will install the node dependencies for you, and will also install any bower components.
+  - This will also run the gulp build process to create the dist folder.
 
 
 ## Listening for file changes:
