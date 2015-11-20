@@ -6,6 +6,8 @@ import { Router, Route, Link } from 'react-router';
 import jQuery from 'jquery';
 
 import TweetList from './tweet-list.js'
+import Login from './login.js'
+import Register from './register.js'
 
 class App extends React.Component {
 
@@ -27,8 +29,7 @@ class App extends React.Component {
               tweets: response.data
             })
           });
-  } 
-
+  }
 
   render () {
     return(
@@ -40,9 +41,7 @@ class App extends React.Component {
 export default App;
 
 
-
-
-render((
+ReactDOM.render((
   <Router>
     <Route path="/" component={App}/>
   </Router>
