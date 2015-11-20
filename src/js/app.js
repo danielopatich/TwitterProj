@@ -7,6 +7,9 @@ import jQuery from 'jquery';
 
 import TweetList from './tweet-list.js'
 import Header from './header.js'
+import Login from './login.js'
+import Register from './register.js'
+
 
 class App extends React.Component {
 
@@ -30,7 +33,6 @@ class App extends React.Component {
           });
   }
 
-
   render () {
     return(
       <div className="body">
@@ -44,10 +46,11 @@ class App extends React.Component {
 export default App;
 
 
-
-
 ReactDOM.render((
   <Router>
-    <Route path="/" component={App}/>
+    <Route path="/" component={App}>
+      <Route path="/login" component/>
+      <Route path="/register" component/>
+    </Route>
   </Router>
 ),document.getElementById('app'));
