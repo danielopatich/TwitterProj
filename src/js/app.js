@@ -2,6 +2,7 @@ console.log('hi')
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Router, Route, Link } from 'react-router';
 import jQuery from 'jquery';
 
 import TweetList from './tweet-list.js'
@@ -38,7 +39,11 @@ class App extends React.Component {
 
 export default App;
 
-ReactDOM.render(
-  <App/>,
-  document.getElementById('app')
-);
+
+
+
+render((
+  <Router>
+    <Route path="/" component={App}/>
+  </Router>
+),document.getElementById('app'));
