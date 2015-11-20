@@ -1,41 +1,44 @@
+console.log('hi')
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import jQuery from 'jquery';
 
-
-import TwitterFeed from './tweet_feed';
+import TweetList from './tweet-list.js'
 
 class App extends React.Component {
-  constructor(props) {
+
+  constructor(props){
     super(props);
 
     this.state = {
-      tweets: [],
+      Loaded: false,
+      tweets:[]
     }
   }
 
-
   componentDidMount() {
     jQuery.ajax('https://twitterapii.herokuapp.com/tweets.json')
-      .then( response => {
-        this.setState({
-          tweets: response
-        });
-      })
+          .then(response => {
+
+            this.setState({
+              Loaded: true,
+              tweets: response.data
+            })
+          });
   }
 
+
   render () {
-    return (
-      <div className="pageWrap">
-        <TwitterFeed tweets={this.state.tweets}/>
-      </div>
+    return(
+      <TweetList tweets={this.state.tweets}/>
     )
   }
 }
+
+export default App;
 
 ReactDOM.render(
   <App/>,
   document.getElementById('app')
 );
-
-export default App;
