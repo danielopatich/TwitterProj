@@ -44,8 +44,8 @@ export default App;
 ReactDOM.render((
   <Router>
     <Route path="/" component={App}>
-      <Route path="/login" component/>
-      <Route path="/register" component/>
+      <Route path="/login" component={Login}/>
+      <Route path="/register" component={Register}/>
     </Route>
   </Router>
 ),document.getElementById('app'));
