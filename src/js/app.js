@@ -1,12 +1,13 @@
-console.log('hi')
+console.log('Welcome to the twitterz')
 
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, Link } from 'react-router';
 import jQuery from 'jquery';
 
-import TweetList from './tweet-list.js'
 import Header from './header.js'
+import TweetInput from './tweet-input'
+import TweetList from './tweet-list.js'
 import Login from './login.js'
 import Register from './register.js'
 
@@ -30,14 +31,17 @@ class App extends React.Component {
               Loaded: true,
               tweets: response.data
             })
+            console.log(this.state.tweets)
           });
   }
 
   render () {
     return(
-      <div className="body">
-        <Header/>
-        <TweetList tweets={this.state.tweets}/>
+      <div className="bodyWrapper">
+        <Header className="head"/>
+        <main>
+          {this.props.children}
+        </main>
       </div>
     )
   }
@@ -45,12 +49,15 @@ class App extends React.Component {
 
 export default App;
 
-
-ReactDOM.render((
+let routes = (
   <Router>
     <Route path="/" component={App}>
-      <Route path="/login" component/>
-      <Route path="/register" component/>
+      <Route path="/login" component={Login}/>
+      <Route path="/register" component={Register}/>
+      <Route path="/tweet-list"componet={TweetList}>
+      </Route>
     </Route>
   </Router>
-),document.getElementById('app'));
+);
+
+ReactDOM.render(routes, document.getElementById('app'));

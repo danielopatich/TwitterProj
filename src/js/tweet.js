@@ -1,16 +1,17 @@
 import React from 'react'
+import moment from 'moment';
 
 class Tweet extends React.Component {
 
   render () {
-    console.log(this.props.tweet.relationships.user.data.id)
     let tweet = this.props.tweet
     let user = this.props.tweet.relationships.user.data.id
+    let time = moment(tweet.attributes.created_at).fromNow();
     return(
-    <div>
-      <h1>{tweet.attributes.body}</h1>
-      <p>{tweet.attributes.created_at}</p>
-      <h2>tweeted by -* {user} *-</h2>
+    <div className="tweet-input">
+      <a href="#" className="userHandle">@{user}</a>
+      <span className="tweetTime">tweeted: {time}</span>
+      <p className="tweetBody">{tweet.attributes.body}</p>
     </div>
     )
   }
