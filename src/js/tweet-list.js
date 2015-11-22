@@ -16,7 +16,7 @@ class TweetList extends React.Component {
                     tweet={tweet}/>
     })
     return(
-      <div>
+      <div className="tweetList">
         {tweets}
       </div>
 

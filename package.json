@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "twitter_react",
+=======
+  "name": "TwitterProj",
+>>>>>>> 337a6eb4655924e5d7f2fcd51dfad52fd94a932a
   "version": "1.0.0",
   "description": "twiiter react hw",
   "main": "dist/js/bundle.js",
@@ -25,6 +29,11 @@
     "karma-jasmine": "^0.3.6",
     "karma-phantomjs-launcher": "^0.2.1",
     "karma-spec-reporter": "^0.0.20",
+<<<<<<< HEAD
+=======
+    "lodash": "^3.10.1",
+    "moment": "^2.10.6",
+>>>>>>> 337a6eb4655924e5d7f2fcd51dfad52fd94a932a
     "phantomjs": "^1.9.18",
     "react": "^0.14.2",
     "react-dom": "^0.14.2",
