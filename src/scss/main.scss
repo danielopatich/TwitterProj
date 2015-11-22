@@ -13,21 +13,21 @@ body {
   font-family: 'Arimo', sans-serif;
 }
 
-.pageWrap {
-  @include outline-container;
-}
-
-
 .head {
   width: 100%;
   height: 50px;
   background: #F3F0CD;
   margin: 0;
   display: block;
-  position: relative;
   float: left;
+  position: relative;
   font-family: 'Lateef';
   font-size: 22px;
+  margin-top: none;
+}
+
+.ulNav {
+    margin: 8px 0;
 }
 
 .ulNav li {
@@ -38,9 +38,15 @@ body {
   }
 }
 
+
 .navLogin, .navRegister, .navProfile {
   float: right;
   padding: 0px 10px;
+}
+
+.pageWrap {
+  @include outer-container;
+  width: 100%;
 }
 
 .tweetInput {
@@ -49,7 +55,7 @@ body {
 }
 
 .tweetBox {
-  width: 530px;
+  width: 100%;
   height: 80px;
 }
 
