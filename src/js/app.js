@@ -4,6 +4,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, Link } from 'react-router';
 import jQuery from 'jquery';
+import _ from 'lodash';
 
 import TweetList from './tweet-list';
 import Aside from './aside';
