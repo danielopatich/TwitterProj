@@ -36,10 +36,11 @@ class TweetInput extends React.Component {
   render () {
     return (
       <div className="tweetInput">
-        // <input type="button" value="Send"/>
+        <span>User:<a href="#">@</a></span>
         <input className="tweetBox"
               onKeyPress={this.handleKeyPress}
-                     ref="task"/>
+                     ref="task"
+              placeholder="Type your message..."/>
       </div>
     )
   }

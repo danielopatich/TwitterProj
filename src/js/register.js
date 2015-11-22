@@ -1,6 +1,21 @@
 import React from 'react'
 
 class Register extends React.Component {
+  // login(username, password) {
+  // return when(request({
+  //   url: 'https://twitterapii.herokuapp.com/users/oauth',
+  //   method: ‘POST’,
+  //   type: ‘json’,
+  //   data: {
+  //     username, password
+  //   }
+  // }))
+  // .then(function(response) {
+  //     let access = response.id_token;
+  //     this.***(access);
+  //     return true;
+  // });
+
   render () {
     return (
       <div className="registerWrap">
