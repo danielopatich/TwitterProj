@@ -61,6 +61,5 @@ export default App;
 ReactDOM.render((
   <Router>
     <Route path="/" component={App}/>
-    <Route path="dashboard" component={Aside}/>
   </Router>
 ),document.getElementById('app'));
