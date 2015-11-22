@@ -44,13 +44,15 @@ class App extends React.Component {
   }
 }
 
+
 export default App;
+
 
 ReactDOM.render((
   <Router>
     <Route path="/" component={App}>
-      <Route path="/login" component={Login}/>
-      <Route path="/register" component={Register}/>
+      <Route path="#login" component={Login}/>
+      <Route path="#register" component={Register}/>
     </Route>
   </Router>
 ),document.getElementById('app'));
