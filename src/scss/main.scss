@@ -8,7 +8,7 @@
   box-sizing: border-box;
 }
 
-body {
+.bodyWrapper {
   background: #036A93;
   font-family: 'Arimo', sans-serif;
 }
@@ -68,25 +68,25 @@ body {
   background: #609EB7;
 }
 
-div.tweet {
-  border-bottom: 3px solid #586576;
-  color: #141C3A;
-  .tweetTime {
-    font-size: 8px;
-    padding: 5px;
-    border-right: 1px solid #A7DBDB;
-    border-bottom: 1px solid #A7DBDB;
-  }
-}
-
-.tweetBody {
-  font-size: 20px;
-  padding: 0px 8px;
-}
-
-.userHandle {
-  text-decoration: none;
-  color: #4078C0;
-  padding: 4px;
-  border-bottom: 1px solid #A7DBDB;
-}
+// div.tweet {
+//   border-bottom: 3px solid #586576;
+//   color: #141C3A;
+//   .tweetTime {
+//     font-size: 8px;
+//     padding: 5px;
+//     border-right: 1px solid #A7DBDB;
+//     border-bottom: 1px solid #A7DBDB;
+//   }
+// }
+//
+// .tweetBody {
+//   font-size: 20px;
+//   padding: 0px 8px;
+// }
+//
+// .userHandle {
+//   text-decoration: none;
+//   color: #4078C0;
+//   padding: 4px;
+//   border-bottom: 1px solid #A7DBDB;
+// }

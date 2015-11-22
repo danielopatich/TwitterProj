@@ -6,6 +6,7 @@ import { Router, Route, Link } from 'react-router';
 import jQuery from 'jquery';
 
 
+
 import Header from './header'
 import TweetInput from './tweet-input'
 import TweetList from './tweet-list'
@@ -13,6 +14,7 @@ import Login from './login'
 import Register from './register'
 import Aside from './aside'
 import Dashboard from './dashboard'
+
 
 class App extends React.Component {
 
@@ -36,6 +38,7 @@ class App extends React.Component {
               Loaded: true,
               tweets: response.data
             })
+            console.log(this.state.tweets)
           });
 
     jQuery.ajax('https://twitterapii.herokuapp.com/users.json')
@@ -50,17 +53,12 @@ class App extends React.Component {
 
   render () {
     return(
-    <div>
-      <div className="body">
+      <div className="bodyWrapper">
         <Header className="head"/>
-        <div className="pageWrap">
-          <TweetInput className="tweetInput"/>
-          <TweetList className="tweetList" tweets={this.state.tweets}/>
-          <Aside users={this.state.users}/>
-          <Dashboard users={this.state.users}/>
-        </div>
+        <main>
+          {this.props.children}
+        </main>
       </div>
-    </div>
     )
   }
 }
@@ -69,17 +67,15 @@ class App extends React.Component {
 export default App;
 
 
-
-
-
-
-ReactDOM.render((
+let routes = (
   <Router>
     <Route path="/" component={App}>
-      <Route path="#login" component={Login}/>
-      <Route path="#register" component={Register}/>
-      <Route path="/users/:id" component={Dashboard}/>
+      <Route path="/login" component={Login}/>
+      <Route path="/register" component={Register}/>
+      <Route path="/tweet-list"componet={TweetList}/>
     </Route>
 
   </Router>
-),document.getElementById('app'));
+);
+
+ReactDOM.render(routes, document.getElementById('app'));
