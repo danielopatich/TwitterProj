@@ -5,16 +5,14 @@ import ReactDOM from 'react-dom';
 import { Router, Route, Link } from 'react-router';
 import jQuery from 'jquery';
 
-<<<<<<< HEAD
-import TweetList from './tweet-list.js';
-import Aside from './aside';
-=======
-import Header from './header.js'
+
+import Header from './header'
 import TweetInput from './tweet-input'
-import TweetList from './tweet-list.js'
-import Login from './login.js'
-import Register from './register.js'
->>>>>>> 337a6eb4655924e5d7f2fcd51dfad52fd94a932a
+import TweetList from './tweet-list'
+import Login from './login'
+import Register from './register'
+import Aside from './aside'
+import Dashboard from './dashboard'
 
 class App extends React.Component {
 
@@ -52,19 +50,17 @@ class App extends React.Component {
 
   render () {
     return(
-<<<<<<< HEAD
-      <div>
-      <TweetList tweets={this.state.tweets}/>
-      <Aside users={this.state.users}/>
-=======
+    <div>
       <div className="body">
         <Header className="head"/>
         <div className="pageWrap">
           <TweetInput className="tweetInput"/>
           <TweetList className="tweetList" tweets={this.state.tweets}/>
+          <Aside users={this.state.users}/>
+          <Dashboard users={this.state.users}/>
         </div>
->>>>>>> 337a6eb4655924e5d7f2fcd51dfad52fd94a932a
       </div>
+    </div>
     )
   }
 }
@@ -73,19 +69,17 @@ class App extends React.Component {
 export default App;
 
 
-<<<<<<< HEAD
 
 
-ReactDOM.render((
-  <Router>
-    <Route path="/" component={App}/>
-=======
+
+
 ReactDOM.render((
   <Router>
     <Route path="/" component={App}>
       <Route path="#login" component={Login}/>
       <Route path="#register" component={Register}/>
+      <Route path="/users/:id" component={Dashboard}/>
     </Route>
->>>>>>> 337a6eb4655924e5d7f2fcd51dfad52fd94a932a
+
   </Router>
 ),document.getElementById('app'));
