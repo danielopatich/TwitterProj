@@ -5,50 +5,63 @@ import ReactDOM from 'react-dom';
 import { Router, Route, Link } from 'react-router';
 import jQuery from 'jquery';
 
-import Header from './header.js'
+import TweetList from './tweet-list';
+import Aside from './aside';
+import Header from './header'
 import TweetInput from './tweet-input'
-import TweetList from './tweet-list.js'
 import Login from './login'
-import Register from './register'
+import Register from './register';
 
 
 class App extends React.Component {
-
-  constructor(props){
+  constructor(props) {
     super(props);
 
     this.state = {
       Loaded: false,
-      tweets:[]
+      tweets:[],
+      users: []
     }
   }
 
   componentDidMount() {
-    jQuery.ajax('https://twitterapii.herokuapp.com/tweets.json')
-          .then(response => {
+    this.getUsers();
+    this.getTweets();
+  }
 
-            this.setState({
-              Loaded: true,
-              tweets: response.data
-            })
-          });
+  getUsers() {
+    jQuery.ajax('https://twitterapii.herokuapp.com/users.json')
+      .then(response => {
+        this.setState({
+          users: response.data
+        })
+      });
+  }
+
+  getTweets() {
+    jQuery.ajax('https://twitterapii.herokuapp.com/tweets.json')
+      .then(response => {
+        this.setState({
+          Loaded: true,
+          tweets: response.data
+        })
+      });
   }
 
   render () {
-    return(
+    return  (
       <div className="body">
         <Header className="head"/>
         <div className="pageWrap">
           <TweetInput className="tweetInput"/>
           <TweetList className="tweetList" tweets={this.state.tweets}/>
+          <Aside className="aside" users={this.state.users}/>
         </div>
       </div>
-    )
-  }
-}
+      )
+    }
+  };
 
-
-export default App;
 
 ReactDOM.render((
   <Router>
@@ -58,3 +71,5 @@ ReactDOM.render((
     </Route>
   </Router>
 ),document.getElementById('app'));
+
+export default App;
