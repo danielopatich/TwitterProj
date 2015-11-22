@@ -2,6 +2,7 @@
 // $visual-grid:true;
 @import '../../dist/bower_components/neat/app/assets/stylesheets/neat';
 @import url(https://fonts.googleapis.com/css?family=Raleway|Arimo);
+@import url(https://fonts.googleapis.com/css?family=Lateef);
 
 * {
   box-sizing: border-box;
@@ -9,22 +10,32 @@
 
 body {
   background: #036A93;
-  @include outer-container;
   font-family: 'Arimo', sans-serif;
 }
 
+.pageWrap {
+  @include outline-container;
+}
+
+
 .head {
   width: 100%;
+  height: 50px;
   background: #F3F0CD;
-  margin-bottom: 20px;
+  margin: 0;
   display: block;
   position: relative;
   float: left;
+  font-family: 'Lateef';
+  font-size: 22px;
 }
 
 .ulNav li {
   display: -webkit-inline-box;
   text-decoration: none;
+  a {
+    text-decoration: none;
+  }
 }
 
 .navLogin, .navRegister, .navProfile {

@@ -37,8 +37,10 @@ class App extends React.Component {
     return(
       <div className="body">
         <Header className="head"/>
-        <TweetInput className="tweetInput"/>
-        <TweetList className="tweetList" tweets={this.state.tweets}/>
+        <div className="pageWrap">
+          <TweetInput className="tweetInput"/>
+          <TweetList className="tweetList" tweets={this.state.tweets}/>
+        </div>
       </div>
     )
   }
