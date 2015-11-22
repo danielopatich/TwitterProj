@@ -8,8 +8,9 @@ import jQuery from 'jquery';
 import Header from './header.js'
 import TweetInput from './tweet-input'
 import TweetList from './tweet-list.js'
-import Login from './login.js'
-import Register from './register.js'
+import Login from './login'
+import Register from './register'
+
 
 class App extends React.Component {
 
@@ -48,7 +49,6 @@ class App extends React.Component {
 
 
 export default App;
-
 
 ReactDOM.render((
   <Router>
