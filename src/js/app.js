@@ -23,7 +23,7 @@ class App extends React.Component {
       tweets:[],
       users: []
     }
-  }
+  };
 
   componentDidMount() {
     this.getUsers();
@@ -51,26 +51,31 @@ class App extends React.Component {
 
   render () {
     return  (
-      <div className="body">
-        <Header className="head"/>
-        <div className="pageWrap">
-          <TweetInput className="tweetInput"/>
-          <TweetList className="tweetList" tweets={this.state.tweets}/>
-          <Aside className="aside" users={this.state.users}/>
+      <main>
+        {this.props.children}
+          <div className="body">
+          <Header className="head"/>
+          <div className="pageWrap">
+            <TweetInput className="tweetInput"/>
+            <TweetList className="tweetList" tweets={this.state.tweets}/>
+            <Aside className="aside" users={this.state.users}/>
+          </div>
         </div>
-      </div>
+      </main>
       )
     }
-  };
-
-
-ReactDOM.render((
-  <Router>
-    <Route path="/" component={App}>
-      <Route path="#login" component={Login}/>
-      <Route path="#register" component={Register}/>
-    </Route>
-  </Router>
-),document.getElementById('app'));
+  }
 
 export default App;
+
+let routes = (
+  <Router>
+    <Route path="/" component={App}>
+      <Route path="/login" component={Login}></Route>
+      <Route path="/register" component={Register}></Route>
+      <Route path="/tweet-list"component={TweetList}></Route>
+    </Route>
+  </Router>
+);
+
+ReactDOM.render(routes, document.getElementById('app'));

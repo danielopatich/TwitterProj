@@ -8,7 +8,7 @@
   box-sizing: border-box;
 }
 
-body {
+.body {
   background: #036A93;
   font-family: 'Arimo', sans-serif;
 }
@@ -59,7 +59,7 @@ body {
   height: 80px;
 }
 
-.tweetList {
+.tweet-list {
   @include span-columns(6);
   @include shift(3);
   border: 3px solid #586576;
@@ -68,7 +68,7 @@ body {
   background: #609EB7;
 }
 
-div.tweet {
+div.tweet-input {
   border-bottom: 3px solid #586576;
   color: #141C3A;
   .tweetTime {
