@@ -4,7 +4,6 @@ import jQuery from 'jquery';
 import Tweet from './tweet';
 
 class TweetList extends React.Component {
-
   constructor(props){
     super(props);
 

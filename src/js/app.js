@@ -39,6 +39,7 @@ class App extends React.Component {
       });
   }
 
+// MOVE TO TWEETS LIST
   getTweets() {
     jQuery.ajax('https://twitterapii.herokuapp.com/tweets.json')
       .then(response => {
@@ -48,32 +49,35 @@ class App extends React.Component {
         })
       });
   }
+// MOVE TO TWEETS LIST
 
   render () {
     return  (
-      <main>
-        {this.props.children}
-          <div className="body">
-          <Header className="head"/>
-          <div className="pageWrap">
-            <TweetInput className="tweetInput"/>
-            <TweetList className="tweetList" tweets={this.state.tweets}/>
-            <Aside className="aside" users={this.state.users}/>
-          </div>
-        </div>
-      </main>
+      <div>
+        <Header className="head"/>
+         <main>
+            <div className="body">
+              {this.props.children}
+            <div className="pageWrap">
+              <TweetInput className="tweetInput"/>
+              <TweetList className="tweetList" tweets={this.state.tweets}/>
+              <Aside className="aside" users={this.state.users}/>
+            </div>
+           </div>
+         </main>
+      </div>
       )
     }
   }
 
 export default App;
 
-let routes = (
+const routes = (
   <Router>
     <Route path="/" component={App}>
-      <Route path="/login" component={Login}></Route>
-      <Route path="/register" component={Register}></Route>
-      <Route path="/tweet-list"component={TweetList}></Route>
+      <Route path="login" component={Login}></Route>
+      <Route path="register" component={Register}></Route>
+      <Route path="tweet-list"component={TweetList}></Route>
     </Route>
   </Router>
 );
