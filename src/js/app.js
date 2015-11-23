@@ -72,7 +72,7 @@ let routes = (
     <Route path="/" component={App}>
       <Route path="/login" component={Login}/>
       <Route path="/register" component={Register}/>
-      <Route path="/tweet-list"componet={TweetList}/>
+      <Route path="/tweet-list"component={TweetList}/>
     </Route>
 
   </Router>
