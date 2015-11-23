@@ -16,23 +16,6 @@ class App extends React.Component {
 
   constructor(props){
     super(props);
-
-    this.state = {
-      Loaded: false,
-      tweets:[]
-    }
-  }
-
-  componentDidMount() {
-    jQuery.ajax('https://twitterapii.herokuapp.com/tweets.json')
-          .then(response => {
-
-            this.setState({
-              Loaded: true,
-              tweets: response.data
-            })
-            console.log(this.state.tweets)
-          });
   }
 
   render () {
@@ -52,10 +35,9 @@ export default App;
 let routes = (
   <Router>
     <Route path="/" component={App}>
-      <Route path="/login" component={Login}/>
-      <Route path="/register" component={Register}/>
-      <Route path="/tweet-list"componet={TweetList}>
-      </Route>
+      <Route path="tweet-list" component={TweetList}/>
+      <Route path="login" component={Login}/>
+      <Route path="register" component={Register}/>
     </Route>
   </Router>
 );
