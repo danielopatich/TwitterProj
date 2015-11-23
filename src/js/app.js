@@ -4,31 +4,51 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, Link } from 'react-router';
 import jQuery from 'jquery';
+import _ from 'lodash';
 
-import Header from './header.js'
-import TweetInput from './tweet-input'
-import TweetList from './tweet-list.js'
-import Login from './login.js'
-import Register from './register.js'
+import TweetList from './component/tweet-list';
+import Aside from './component/aside';
+import Header from './component/header'
+import TweetInput from './component/tweet-input'
+import Login from './component/login'
+import Register from './component/register';
 
 
 class App extends React.Component {
-
-  constructor(props){
+  constructor(props) {
     super(props);
+
+    this.state = {
+      users: []
+    }
+  };
+
+  componentDidMount() {
+    this.getUsers();
   }
+
+  getUsers() {
+    jQuery.ajax('https://twitterapii.herokuapp.com/users.json')
+      .then(response => {
+        this.setState({
+          users: response.data
+        })
+      });
+  }
+
 
   render () {
     return(
-      <div className="bodyWrapper">
-        <Header className="head"/>
-        <main>
-          {this.props.children}
-        </main>
-      </div>
-    )
+        <div className="pageWrap">
+          <Header className="head"/>
+          <Aside className="aside" users={this.state.users}/>
+          <main>
+            {this.props.children}
+          </main>
+        </div>
+      )
+    }
   }
-}
 
 export default App;
 
