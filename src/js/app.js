@@ -6,12 +6,13 @@ import { Router, Route, Link } from 'react-router';
 import jQuery from 'jquery';
 import _ from 'lodash';
 
-import TweetList from './tweet-list';
-import Aside from './aside';
 import Header from './header'
 import TweetInput from './tweet-input'
+import TweetList from './tweet-list'
 import Login from './login'
-import Register from './register';
+import Register from './register'
+import Aside from './aside'
+import Dashboard from './dashboard'
 
 
 class App extends React.Component {
@@ -52,19 +53,12 @@ class App extends React.Component {
 // MOVE TO TWEETS LIST
 
   render () {
-    return  (
-      <div>
+    return(
+      <div className="bodyWrapper">
         <Header className="head"/>
-         <main>
-            <div className="body">
-              {this.props.children}
-            <div className="pageWrap">
-              <TweetInput className="tweetInput"/>
-              <TweetList className="tweetList" tweets={this.state.tweets}/>
-              <Aside className="aside" users={this.state.users}/>
-            </div>
-           </div>
-         </main>
+        <main>
+          {this.props.children}
+        </main>
       </div>
       )
     }
@@ -72,12 +66,12 @@ class App extends React.Component {
 
 export default App;
 
-const routes = (
+let routes = (
   <Router>
     <Route path="/" component={App}>
-      <Route path="login" component={Login}></Route>
-      <Route path="register" component={Register}></Route>
-      <Route path="tweet-list"component={TweetList}></Route>
+      <Route path="/login" component={Login}/>
+      <Route path="/register" component={Register}/>
+      <Route path="/tweet-list"component={TweetList}/>
     </Route>
   </Router>
 );
