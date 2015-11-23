@@ -6,13 +6,13 @@ import { Router, Route, Link } from 'react-router';
 import jQuery from 'jquery';
 import _ from 'lodash';
 
-import Header from './header'
-import TweetInput from './tweet-input'
-import TweetList from './tweet-list'
-import Login from './login'
-import Register from './register'
-import Aside from './aside'
-import Dashboard from './dashboard'
+import Header from './components/header'
+import TweetList from './components/tweet-list'
+import Aside from './components/aside'
+import TweetInput from './components/tweet-input'
+import Login from './components/login'
+import Register from './components/register'
+import Dashboard from './components/dashboard'
 
 
 class App extends React.Component {
