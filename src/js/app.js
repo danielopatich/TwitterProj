@@ -21,14 +21,12 @@ class App extends React.Component {
 
     this.state = {
       Loaded: false,
-      tweets:[],
       users: []
     }
   };
 
   componentDidMount() {
     this.getUsers();
-    this.getTweets();
   }
 
   getUsers() {
@@ -40,22 +38,12 @@ class App extends React.Component {
       });
   }
 
-// MOVE TO TWEETS LIST
-  getTweets() {
-    jQuery.ajax('https://twitterapii.herokuapp.com/tweets.json')
-      .then(response => {
-        this.setState({
-          Loaded: true,
-          tweets: response.data
-        })
-      });
-  }
-// MOVE TO TWEETS LIST
 
   render () {
     return(
-      <div className="bodyWrapper">
+      <div className="pageWrap">
         <Header className="head"/>
+        <Aside className="aside" users={this.state.users}/>
         <main>
           {this.props.children}
         </main>
