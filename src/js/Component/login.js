@@ -19,6 +19,7 @@ class Login extends React.Component {
     })
     console.log("went to server")
 
+    User.componentDidMount()
   }
 
   render () {
