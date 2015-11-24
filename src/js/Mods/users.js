@@ -1,7 +1,6 @@
 import  Jquery from 'jquery';
 
 class User{
-
   constructor(){
     this.access_token = null;
     this.refresh_token = null;
