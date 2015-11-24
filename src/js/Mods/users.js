@@ -5,16 +5,24 @@ class User{
     this.access_token = null;
     this.refresh_token = null;
     this.token_expires = null;
-
-    this.state = {
-      user
-    }
   }
 
   isLoggedIn(){
     return this.access_token !== null;
     console.log("is be logged inned")
   }
+
+  componentDidMount() {
+    Jquery.ajax('https://twitterapii.herokuapp.com/users.json?include=tweets').then( response => {
+      let email = response.data
+      let allEmails = email.map( item => {
+        return item.attributes.email
+      })
+      let loggedInEmail = allEmails.filter( item => {return item === 'tay' })
+      console.log(loggedInEmail)
+    })
+  }
+
 
   login(data){
     let url = 'https://twitterapii.herokuapp.com/oauth/token'
