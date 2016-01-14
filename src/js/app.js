@@ -1,41 +1,66 @@
+console.log('Welcome to the twitterz')
+
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Router, Route, Link } from 'react-router';
 import jQuery from 'jquery';
+import _ from 'lodash';
 
-
-import TwitterFeed from './tweet_feed';
+import Header from './components/header'
+import TweetList from './components/tweet-list'
+import Aside from './components/aside'
+import TweetInput from './components/tweet-input'
+import Login from './components/login'
+import Register from './components/register'
+import Dashboard from './components/dashboard'
 
 class App extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      tweets: [],
+      Loaded: false,
+      users: []
+    }
+  };
+
+  componentDidMount() {
+    this.getUsers();
+  }
+
+  getUsers() {
+    jQuery.ajax('https://twitterapii.herokuapp.com/users.json')
+      .then(response => {
+        this.setState({
+          users: response.data
+        })
+      });
+  }
+
+
+  render () {
+    return(
+        <div className="pageWrap">
+          <Header className="head"/>
+          <Aside className="aside" users={this.state.users}/>
+          <main>
+            {this.props.children}
+          </main>
+        </div>
+      )
     }
   }
 
+export default App;
 
-  componentDidMount() {
-    jQuery.ajax('https://twitterapii.herokuapp.com/tweets.json')
-      .then( response => {
-        this.setState({
-          tweets: response
-        });
-      })
-  }
-
-  render () {
-    return (
-      <div className="pageWrap">
-        <TwitterFeed tweets={this.state.tweets}/>
-      </div>
-    )
-  }
-}
-
-ReactDOM.render(
-  <App/>,
-  document.getElementById('app')
+let routes = (
+  <Router>
+    <Route path="/" component={App}>
+      <Route path="tweet-list" component={TweetList}/>
+      <Route path="login" component={Login}/>
+      <Route path="register" component={Register}/>
+    </Route>
+  </Router>
 );
 
-export default App;
+ReactDOM.render(routes, document.getElementById('app'));
