@@ -21,7 +21,7 @@ class TweetInput extends React.Component {
 
   saveTweet() {
     let options = {
-      method: 'POST',
+      type: 'POST',
       data: {
         body: tweet,
         completed: false
