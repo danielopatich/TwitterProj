@@ -78,7 +78,7 @@ class TweetList extends React.Component {
           <input className="tweetBox"
                       ref="msgs"
                       placeholder="Type your message..."/>
-                    <button className="sendTweet" onClick={this.handleSend}>Send</button>
+          <button className="sendTweet" onClick={this.handleSend}>Send</button>
         </section>
         {tweets.sort().reverse()}
       </div>

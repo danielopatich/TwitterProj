@@ -41,7 +41,7 @@ class Login extends React.Component {
           <input ref="email" type="text" className="email" placeholder="Email..."></input>
           <input ref="password" type="password" className="password" placeholder="Password:"></input>
           <button className="loginBtn" value="Login" onClick={this.handleLogin}>login</button>
-          <span>Or...<a href="/#/login">Register Here</a></span>
+          <span>Or...<a href="/#/register">Register Here</a></span>
         </form>
       </div>
     )

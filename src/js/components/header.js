@@ -1,10 +1,6 @@
 import React from 'react'
 
 class Header extends React.Component {
-  // componentDidMount() {
-  //   users.subscribe()
-  // }
-
 
   render () {
     return(

@@ -6,6 +6,7 @@ import jQuery from 'jquery';
 import _ from 'lodash';
 import User from './Mods/users'
 
+import Home from './components/home'
 import Header from './components/header'
 import TweetList from './components/tweet-list'
 import Aside from './components/aside'
@@ -20,57 +21,13 @@ const requireAuth = (nextState, replaceState) => {
   }
 };
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      Loaded: false,
-      users: []
-    }
-  };
-
-  componentDidMount() {
-    this.getUsers();
-  }
-
-  getUsers() {
-    this.interval = setInterval( () =>
-    jQuery.ajax('https://twitterapii.herokuapp.com/users.json')
-      .then(response => {
-        this.setState({
-          users: response.data
-        })
-      }) , 3000);
-  }
-
-
-  render () {
-    return(
-        <div>
-        <Header className="head"/>
-          <div className="pageWrap">
-            <Aside className="aside" users={this.state.users}/>
-            <main>
-              {this.props.children}
-            </main>
-          </div>
-        </div>
-      )
-    }
-  }
-
-export default App;
-
-let routes = (
+ReactDOM.render((
   <Router>
-    <Route path="/" component={App}>
+    <Route path="/dashboard" component={Home}>
       <IndexRoute component={WelcomeScreen}/>
-      <Route path="tweet-list" component={TweetList} />
-      <Route path="login" component={Login}/>
-      <Route path="register" component={Register}/>
+      <Route path="/tweet-list" component={TweetList} onEnter={requireAuth}/>
+      <Route path="/login" component={Login}/>
+      <Route path="/register" component={Register}/>
     </Route>
   </Router>
-);
-
-ReactDOM.render(routes, document.getElementById('app'));
+), document.getElementById('app'));

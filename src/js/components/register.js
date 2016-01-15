@@ -43,7 +43,7 @@ class Register extends React.Component {
         <input ref="password" type="password" className="password" placeholder="Password:"></input>
         <input ref="confirmPassword" type="password" className="confPassword" placeholder="Conf Password"></input>
         <button className="joinBtn" value="Join" onClick={this.handleRegister}>register</button>
-        <span>Or...<a href="/#/login">Login Here</a></span>
+        <span>Or...<a href="/#/register">Login Here</a></span>
         </form>
       </div>
     )
