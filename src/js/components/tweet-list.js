@@ -13,18 +13,18 @@ class TweetList extends React.Component {
       tweets:[]
     }
     this.handleSend = this.handleSend.bind(this);
+    this.saveSend = this.saveSend.bind(this);
   }
 
   handleSend(event) {
     event.preventDefault();
-
+    console.log(this.refs.msgs.value)
+    let body = this.refs.msgs.value
     let tweet = {
-      tweet: {
-        body: this.refs.msgs.value
-      }
+        body: body
     }
 
-    if (tweet.tweet) {
+    if (tweet){
       console.log(tweet);
       this.saveSend(tweet);
     } else {
@@ -39,7 +39,7 @@ class TweetList extends React.Component {
         tweet: tweet
       },
       headers: {
-        'Authorization': User.access_token
+        'Authorization': `Bearer ${User.access_token}`
       }
     }
 
@@ -77,7 +77,7 @@ class TweetList extends React.Component {
                       placeholder="Type your message..."/>
                     <button className="sendTweet" onClick={this.handleSend}>Submit</button>
         </section>
-        {tweets}
+        {tweets.sort().reverse()}
       </div>
 
     )
