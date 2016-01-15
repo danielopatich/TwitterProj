@@ -1,6 +1,8 @@
 import React, { PropTypes } from 'react';
 import jQuery from 'jquery';
 
+import setup from '../setup';
+import User from '../Mods/users';
 import Tweet from './tweet';
 
 class TweetList extends React.Component {
@@ -10,31 +12,37 @@ class TweetList extends React.Component {
       Loaded: false,
       tweets:[]
     }
-    this.handleKeyPress = this.handleKeyPress.bind(this);
+    this.handleSend = this.handleSend.bind(this);
   }
 
-  handleKeyPress(event) {
-    let key = event.which;
-    let ENTER_KEY = 13;
+  handleSend(event) {
+    event.preventDefault();
 
-    if (key === ENTER_KEY) {
-      let tweet = this.refs.body.value;
-      this.saveTweet(tweet);
-      this.refs.tweet.value ='';
+    let tweet = {
+      tweet: {
+        body: this.refs.msgs.value
+      }
     }
-  }
 
-  saveTweet() {
+    if (tweet.tweet) {
+      console.log(tweet);
+      this.saveSend(tweet);
+    } else {
+      console.log('There was a problem sending your tweet.')
+    }
+  };
+
+  saveSend(tweet) {
     let options = {
       type: 'POST',
       data: {
-        body: tweet,
-        completed: false
+        tweet: tweet
       }
-    };
+    }
+
     jQuery.ajax('https://twitterapii.herokuapp.com/tweets', options)
       .then(function(response) {
-        this.props.handleTweetInput(response);
+        console.log(response);
       });
   }
 
@@ -63,9 +71,9 @@ class TweetList extends React.Component {
         <section className="tweetSubmit">
           <span>User:<a href="#">@</a></span>
           <input className="tweetBox"
-                onKeyPress={this.handleKeyPress}
-                      ref="task"
+                      ref="msgs"
                       placeholder="Type your message..."/>
+                    <button className="sendTweet" onClick={this.handleSend}>Submit</button>
         </section>
         {tweets}
       </div>
