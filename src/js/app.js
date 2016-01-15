@@ -35,12 +35,13 @@ class App extends React.Component {
   }
 
   getUsers() {
+    this.interval = setInterval( () =>
     jQuery.ajax('https://twitterapii.herokuapp.com/users.json')
       .then(response => {
         this.setState({
           users: response.data
         })
-      });
+      }) , 3000);
   }
 
 

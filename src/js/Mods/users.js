@@ -60,7 +60,7 @@ class User{
 
     Jquery.ajax(options).then(response =>{
       console.log(response)
-      alert('You are logged in. Click Tweet List to send a tweet.')
+      alert('You are registered. Now login to send a tweet.')
     })
   };
 }
