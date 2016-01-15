@@ -68,7 +68,7 @@ header.head {
   background: rgba(235, 167, 111, 0.85);
   margin-top: 70px;
   float: right;
-  height: 600px;
+  height: 400px;
   overflow: scroll;
   @include span-columns(3);
   @include shift(1);
@@ -113,5 +113,69 @@ header.head {
     color: #fff;
     margin: 20px;
     border-bottom: 1px solid rgba(164, 131, 103, 0.75);
+  }
+  button.sendTweet {
+    height: auto;
+    width: 8.9%;
+    padding: 5px 0px 5px;
+    margin: 0px;
+    background: #426054;
+    color: #fff;
+    border: none;
+  }
+  button:hover {
+    color: #426054;
+    background: #fff;
+    transition: all ease 0.5s;
+  }
+}
+
+.login, .register {
+  @include span-columns(7);
+  @include outer-container;
+  box-shadow: 1px 1px 51px -5px #465852;
+  background: rgba(113, 164, 146, 0.75);
+  border: 1px solid #426054;
+  color: #fff;
+  height: 400px;
+  margin-top: 70px;
+  h1 {
+    text-align: center;
+    margin-bottom: 50px;
+    text-decoration: overline;
+    font-size: 30px;
+  }
+  form.form {
+    width: 100%;
+    display: block;
+    @include span-columns(5 of 12);
+    @include shift(4);
+    input {
+      height: 40px;
+      width: 78%;
+      margin-bottom: 35px;
+      color: black;
+    }
+    button {
+      width: 78%;
+      color: black;
+    }
+    button:hover {
+      color: #fff;
+      background: black;
+      border: none;
+      transition: all ease 0.5s;
+    }
+    span {
+      text-align: center;
+      width: 78%;
+      a {
+        text-decoration: none;
+      }
+      a:hover {
+        color: #fff;
+        transition: all ease 0.5s;
+      }
+    }
   }
 }

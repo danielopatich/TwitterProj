@@ -24,7 +24,7 @@ class Register extends React.Component {
         if (!error) {
           setup(User.access_token);
           console.log('success')
-          this.props.history.pushState(null,'/tweet-list');
+          alert('Now login to tweet!');
         } else {
           alert('error in register');
         }
@@ -38,11 +38,13 @@ class Register extends React.Component {
     return (
       <div className="register">
         <h1>Register 4 us!</h1>
+        <form className="form">
         <input ref="email" type="text" className="email" placeholder="Email..."></input>
         <input ref="password" type="password" className="password" placeholder="Password:"></input>
         <input ref="confirmPassword" type="password" className="confPassword" placeholder="Conf Password"></input>
-        <button className="joinBtn" value="Join" onClick={this.handleRegister}></button>
+        <button className="joinBtn" value="Join" onClick={this.handleRegister}>register</button>
         <span>Or...<a href="/#/login">Login Here</a></span>
+        </form>
       </div>
     )
   }

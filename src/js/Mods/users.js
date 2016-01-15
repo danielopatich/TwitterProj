@@ -1,4 +1,5 @@
 import  Jquery from 'jquery';
+import { Router, Route, IndexRoute } from 'react-router';
 
 import setup from '../setup';
 

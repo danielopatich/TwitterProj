@@ -46,6 +46,7 @@ class TweetList extends React.Component {
     jQuery.ajax('https://twitterapii.herokuapp.com/tweets', options)
       .then(function(response) {
         console.log(response);
+        alert('Sent.')
       });
   }
 
@@ -74,11 +75,10 @@ class TweetList extends React.Component {
     return(
       <div className="tweet-list">
         <section className="tweetSubmit">
-          <span>User:<a href="#">@</a></span>
           <input className="tweetBox"
                       ref="msgs"
                       placeholder="Type your message..."/>
-                    <button className="sendTweet" onClick={this.handleSend}>Submit</button>
+                    <button className="sendTweet" onClick={this.handleSend}>Send</button>
         </section>
         {tweets.sort().reverse()}
       </div>

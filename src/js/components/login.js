@@ -11,6 +11,7 @@ class Login extends React.Component {
   }
 
   handleLogin(event) {
+    event.preventDefault();
     let email = this.refs.email.value;
     let password = this.refs.password.value;
 
@@ -22,7 +23,6 @@ class Login extends React.Component {
         if (!error) {
           setup(User.access_token);
           console.log('success')
-          this.props.history.pushState(null,'/tweet-list');
         } else {
           alert('error in login');
         }
@@ -37,10 +37,12 @@ class Login extends React.Component {
     return (
       <div className="login">
         <h1>Login</h1>
-        <input ref="email" type="text" className="email" placeholder="Email..."></input>
-        <input ref="password" type="password" className="password" placeholder="Password:"></input>
-        <button className="loginBtn" value="Login" onClick={this.handleLogin}></button>
-        <span>Or...<a href="/#/login">Register Here</a></span>
+        <form className="form">
+          <input ref="email" type="text" className="email" placeholder="Email..."></input>
+          <input ref="password" type="password" className="password" placeholder="Password:"></input>
+          <button className="loginBtn" value="Login" onClick={this.handleLogin}>login</button>
+          <span>Or...<a href="/#/login">Register Here</a></span>
+        </form>
       </div>
     )
   }

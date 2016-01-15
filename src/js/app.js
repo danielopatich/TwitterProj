@@ -66,7 +66,7 @@ let routes = (
   <Router>
     <Route path="/" component={App}>
       <IndexRoute component={WelcomeScreen}/>
-      <Route path="tweet-list" component={TweetList} onEnter={requireAuth}/>
+      <Route path="tweet-list" component={TweetList} />
       <Route path="login" component={Login}/>
       <Route path="register" component={Register}/>
     </Route>
