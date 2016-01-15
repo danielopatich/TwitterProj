@@ -50,6 +50,8 @@ class TweetList extends React.Component {
   }
 
   componentDidMount() {
+    alert('post a message!')
+    this.interval = setInterval( () =>
     jQuery.ajax('https://twitterapii.herokuapp.com/tweets.json')
           .then(response => {
             this.setState({
@@ -57,8 +59,9 @@ class TweetList extends React.Component {
               tweets: response.data
             })
             console.log(this.state.tweets)
-          });
-  }
+          }) , 3000);
+    }
+
 
 
   render () {
