@@ -37,6 +37,9 @@ class TweetList extends React.Component {
       type: 'POST',
       data: {
         tweet: tweet
+      },
+      headers: {
+        'Authorization': User.access_token
       }
     }
 
@@ -49,7 +52,6 @@ class TweetList extends React.Component {
   componentDidMount() {
     jQuery.ajax('https://twitterapii.herokuapp.com/tweets.json')
           .then(response => {
-
             this.setState({
               Loaded: true,
               tweets: response.data
